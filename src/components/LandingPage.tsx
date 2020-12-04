@@ -9,7 +9,7 @@ const LandingPage = () => {
       <h1>Nav bar</h1>
       <h1>Section 1 - Hero headline</h1>
       <h1>Section 2 - Try MVP</h1>
-      <h1>Section 3 - Collect Email</h1>
+      <h1>Section 3 - Collect Emails</h1>
       <Button
         type="primary"
         text="Team notes"
