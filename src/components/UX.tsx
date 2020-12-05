@@ -1,3 +1,5 @@
+import React from "react";
+
 const UX = () => (
   <div className="Notes">
     <h1>UX / Design</h1>

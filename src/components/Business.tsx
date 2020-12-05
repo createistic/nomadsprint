@@ -1,3 +1,5 @@
+import React from "react";
+
 const Business = () => (
   <div className="Notes">
     <h1>Business case</h1>
@@ -7,10 +9,7 @@ const Business = () => (
       Need for trust - <b>Digital Trust</b> is a gamechanger...
     </li>
     <li>Further explanation of UX / Development is to follow.</li>
-    <li>
-      We follow an iterative process, testing our hypothesis and adapting the
-      product
-    </li>
+    <li>We follow an iterative process, testing our hypothesis and adapting the product</li>
   </div>
 );
 
