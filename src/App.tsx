@@ -5,12 +5,12 @@ import Tech from "./components/Tech";
 import UX from "./components/UX";
 import MVP from "./components/MVP";
 import LandingPage from "./components/LandingPage";
-import { Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./App.css";
 
 function App() {
   return (
-    <Switch>
+    <Router>
       <div className="App">
         <div className="App-body">
           <Route exact path="/">
@@ -33,7 +33,7 @@ function App() {
           </Route>
         </div>
       </div>
-    </Switch>
+    </Router>
   );
 }
 
