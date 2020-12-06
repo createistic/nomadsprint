@@ -7,7 +7,7 @@ import MVP from "./components/MVP";
 import LandingPage from "./components/LandingPage";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./App.css";
-import Navbar from "./RouteComponents/Navbar";
+import Navbar from "./components/RouteComponents/Navbar";
 
 const App = (): ReactElement => {
   return (

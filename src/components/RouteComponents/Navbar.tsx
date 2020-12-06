@@ -1,15 +1,14 @@
 import * as React from "react";
-import "../styles/navbar.css";
+import "./navbar.css";
 import { Link } from "react-router-dom";
+import logo from "./nomadSprintNavbarLogo.png";
 
 const NavBar: React.FC = (): React.ReactElement => {
   return (
     <nav>
-      <h1>
-        <Link className="logo" to="/">
-          Logo
-        </Link>
-      </h1>
+      <Link className="logo" to="/">
+        <img src={logo} />
+      </Link>
       <ul>
         <Link to="/business">
           <li>Business</li>
