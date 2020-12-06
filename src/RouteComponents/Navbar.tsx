@@ -14,6 +14,9 @@ const NavBar: React.FC = (): React.ReactElement => {
         <Link to="/Business">
           <li>Business</li>
         </Link>
+        <Link to="/MVP">
+          <li>MVP</li>
+        </Link>
         <Link to="/Overview">
           <li>Overview</li>
         </Link>

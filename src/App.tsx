@@ -24,14 +24,14 @@ function App() {
           <Route path="/business">
             <Business />
           </Route>
+          <Route path="/MVP">
+            <MVP />
+          </Route>
           <Route path="/ux">
             <UX />
           </Route>
           <Route path="/tech">
             <Tech />
-          </Route>
-          <Route path="/mvp">
-            <MVP />
           </Route>
         </div>
       </div>
