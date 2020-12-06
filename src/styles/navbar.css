@@ -1,52 +1,51 @@
-nav{
-    min-height: 70px;
-    background: white;
-    color: black;
-    overflow: hidden;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-wrap: wrap ;
-    border-bottom: 5px solid;
-    border-color: green;
-    text-decoration: none;
-    width: 100%;
+nav {
+  min-height: 70px;
+  background: white;
+  color: black;
+  overflow: hidden;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  border-bottom: 5px solid;
+  border-color: green;
+  text-decoration: none;
+  width: 100%;
+  font-family: "Work Sans", sans-serif;
 }
 
-nav h1{
-    margin-left: 50px;
-    text-transform: uppercase;
-    font-weight: normal;
+nav h1 {
+  margin-left: 50px;
+  text-transform: uppercase;
+  font-weight: normal;
 }
 
-nav a{
-   color: black;
+nav a {
+  color: black;
 }
 
 nav :link {
-    text-decoration: none;
-    color: black;
- 
+  text-decoration: none;
+  color: black;
 }
 
 nav :link:link {
-    text-decoration: none;
-    color: blue(15, 15, 15);
+  text-decoration: none;
+  color: blue(15, 15, 15);
 }
 
-
-nav ul{
-    list-style: none;
-    text-transform: uppercase;
+nav ul {
+  list-style: none;
+  text-transform: uppercase;
 }
 
 nav ul li {
-    display: inline-block;
-    padding:10px;
-    color: black;
+  display: inline-block;
+  padding: 10px;
+  color: black;
 }
 
 nav ul li a {
-    text-decoration: none;
-    text-transform: uppercase;
+  text-decoration: none;
+  text-transform: uppercase;
 }

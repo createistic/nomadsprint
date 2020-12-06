@@ -6,7 +6,6 @@ const LandingPage = (): React.ReactElement => {
   const history = useHistory();
   return (
     <div>
-      <h1>Nav bar</h1>
       <h1>Section 1 - Hero headline</h1>
       <h1>Section 2 - Try MVP</h1>
       <h1>Section 3 - Collect Email</h1>
