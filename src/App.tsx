@@ -1,13 +1,13 @@
 import React, { ReactElement } from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import Overview from "./components/Overview";
 import Business from "./components/Business";
 import Tech from "./components/Tech";
 import UX from "./components/UX";
 import MVP from "./components/MVP";
-import LandingPage from "./components/LandingPage";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import "./App.css";
-import Navbar from "./RouteComponents/Navbar";
+import LandingPage from "./containers/LandingPage";
+import Navbar from "./components/Navbar";
+import "./styles/App.css";
 
 const App = (): ReactElement => {
   return (
