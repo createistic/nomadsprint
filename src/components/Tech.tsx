@@ -1,6 +1,6 @@
 import React from "react";
 
-const Tech = () => (
+const Tech = (): React.ReactElement => (
   <div className="Notes">
     <h1>Tech</h1>
     <li>Typescript used through the stack.</li>

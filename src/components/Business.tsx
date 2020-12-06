@@ -1,6 +1,6 @@
 import React from "react";
 
-const Business = () => (
+const Business = (): React.ReactElement => (
   <div className="Notes">
     <h1>Business case</h1>
     <li>Growth in work outside the office.</li>

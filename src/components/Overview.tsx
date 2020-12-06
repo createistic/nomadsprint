@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "createistic-designsystem";
 import { useHistory } from "react-router-dom";
 
-const Overview = () => {
+const Overview = (): React.ReactElement => {
   const history = useHistory();
   return (
     <div className="Notes">

@@ -2,7 +2,7 @@ import { Button } from "createistic-designsystem";
 import React from "react";
 import { useHistory } from "react-router-dom";
 
-const LandingPage = () => {
+const LandingPage = (): React.ReactElement => {
   const history = useHistory();
   return (
     <div>

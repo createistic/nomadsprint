@@ -1,6 +1,6 @@
 import React from "react";
 
-const UX = () => (
+const UX = (): React.ReactElement => (
   <div className="Notes">
     <h1>UX / Design</h1>
     <li>User journey mapped - Whimsical.</li>
