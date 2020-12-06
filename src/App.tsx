@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import Overview from "./components/Overview";
 import Business from "./components/Business";
 import Tech from "./components/Tech";
@@ -9,7 +9,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./App.css";
 import Navbar from "./RouteComponents/Navbar";
 
-function App() {
+const App = (): ReactElement => {
   return (
     <Router>
       <div className="App">
@@ -37,6 +37,6 @@ function App() {
       </div>
     </Router>
   );
-}
+};
 
 export default App;
