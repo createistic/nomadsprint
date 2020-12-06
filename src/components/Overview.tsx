@@ -38,12 +38,10 @@ const Overview = () => {
       <h1>Team resources:</h1>
       <li>Figma (details given)</li>
       <li>
-        URL for landing page{" "}
-        <a href="https://createistic.github.io/web-landing/">HERE</a>
+        URL for landing page <a href="https://createistic.github.io/web-landing/">HERE</a>
       </li>
       <li>
-        URL for design system{" "}
-        <a href="https://createistic.github.io/designsystem/">HERE</a>
+        URL for design system <a href="https://createistic.github.io/designsystem/">HERE</a>
       </li>
       <p style={{ marginTop: 40 }}>
         <Button text="Return Home" onClick={() => history.push("/")} />

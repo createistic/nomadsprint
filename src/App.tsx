@@ -7,11 +7,13 @@ import MVP from "./components/MVP";
 import LandingPage from "./components/LandingPage";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./App.css";
+import Navbar from "./RouteComponents/Navbar";
 
 function App() {
   return (
     <Router>
       <div className="App">
+        <Navbar />
         <div className="App-body">
           <Route exact path="/">
             <LandingPage />
@@ -22,14 +24,14 @@ function App() {
           <Route path="/business">
             <Business />
           </Route>
+          <Route path="/MVP">
+            <MVP />
+          </Route>
           <Route path="/ux">
             <UX />
           </Route>
           <Route path="/tech">
             <Tech />
-          </Route>
-          <Route path="/mvp">
-            <MVP />
           </Route>
         </div>
       </div>
