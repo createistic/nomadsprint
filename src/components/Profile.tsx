@@ -2,6 +2,23 @@ import React, { useState, useEffect } from "react";
 import { Button } from "createistic-designsystem";
 import SDKService from "../services/sdk.service";
 
+interface IUser {
+  title?: string;
+  email?: string;
+  given_name?: string;
+  family_name?: string;
+}
+
+interface IState {
+  user?: IUser;
+  set: boolean;
+}
+
+const initialState: IState = {
+  user: undefined,
+  set: false,
+};
+
 // We may receive a code back once verified e.g lM3DPo5VpVBi55Jrl1f6rn_OMBMpMToLbDZ6xbq_Bhc
 // Store this in our DB along with an identifier for the user (email)
 
@@ -19,23 +36,6 @@ const initiateAuth = async () => {
 const getUserData = async () => {
   const res = await SDKService.getUserInfo();
   return res.data;
-};
-
-interface IUser {
-  title?: string;
-  email?: string;
-  given_name?: string;
-  family_name?: string;
-}
-
-interface IState {
-  user?: IUser;
-  set: boolean;
-}
-
-const initialState: IState = {
-  user: undefined,
-  set: false,
 };
 
 const UserDetails: React.FC<{ user: IUser }> = ({ user }): React.ReactElement => (
