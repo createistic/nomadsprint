@@ -60,6 +60,7 @@ const Profile = (): React.ReactElement => {
 
   return (
     <div className="Notes">
+      <h1>User info</h1>
       {state.user && <UserDetails user={state.user} />}
       <Button type="primary" text="Get verified" onClick={initiateAuth} />
     </div>

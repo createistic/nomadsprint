@@ -1,11 +1,8 @@
 import React, { ReactElement } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import Overview from "./components/Overview";
-import Business from "./components/Business";
-import Tech from "./components/Tech";
-import UX from "./components/UX";
-import MVP from "./components/MVP";
+import About from "./components/About";
 import Profile from "./components/Profile";
+import NewEvent from "./components/NewEvent";
 import LandingPage from "./containers/LandingPage";
 import Navbar from "./components/Navbar";
 import "./styles/App.css";
@@ -19,20 +16,11 @@ const App = (): ReactElement => {
           <Route exact path="/">
             <LandingPage />
           </Route>
-          <Route path="/overview">
-            <Overview />
+          <Route path="/about">
+            <About />
           </Route>
-          <Route path="/business">
-            <Business />
-          </Route>
-          <Route path="/MVP">
-            <MVP />
-          </Route>
-          <Route path="/ux">
-            <UX />
-          </Route>
-          <Route path="/tech">
-            <Tech />
+          <Route path="/new">
+            <NewEvent />
           </Route>
           <Route path="/profile">
             <Profile />
