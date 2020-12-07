@@ -1,7 +1,7 @@
 import * as React from "react";
 import "../styles/navbar.css";
 import { Link } from "react-router-dom";
-import logo from "./nomadSprintNavbarLogo.png";
+import logo from "../styles/nomadSprintNavbarLogo.png";
 
 const NavBar: React.FC = (): React.ReactElement => {
   return (
