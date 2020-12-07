@@ -9,6 +9,18 @@
   font-size: 1.2em;
 }
 
+.BoxContainer {
+  display: flex;
+  margin-bottom: 40px;
+}
+
+.Box {
+  border: solid 1px silver;
+  width: 300px;
+  height: 300px;
+  margin-right: 10px;
+}
+
 .App-body {
   margin: 20px;
   background-color: #fff;

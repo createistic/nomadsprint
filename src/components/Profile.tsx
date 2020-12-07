@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import { Button } from "createistic-designsystem";
 import SDKService from "../services/sdk.service";
 
+// We may receive a code back once verified e.g lM3DPo5VpVBi55Jrl1f6rn_OMBMpMToLbDZ6xbq_Bhc
+// Store this in our DB along with an identifier for the user (email)
+
 interface IUser {
   title?: string;
   email?: string;
@@ -18,9 +21,6 @@ const initialState: IState = {
   user: undefined,
   set: false,
 };
-
-// We may receive a code back once verified e.g lM3DPo5VpVBi55Jrl1f6rn_OMBMpMToLbDZ6xbq_Bhc
-// Store this in our DB along with an identifier for the user (email)
 
 const initiateAuth = async () => {
   console.log("initiate clicked");
@@ -60,7 +60,7 @@ const Profile = (): React.ReactElement => {
 
   return (
     <div className="Notes">
-      <h1>User info</h1>
+      <h1>Your details</h1>
       {state.user && <UserDetails user={state.user} />}
       <Button type="primary" text="Get verified" onClick={initiateAuth} />
     </div>
