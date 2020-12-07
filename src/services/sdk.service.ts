@@ -1,5 +1,5 @@
 import axios from "axios";
-const baseUri = "http://backend-dev2.eu-west-1.elasticbeanstalk.com";
+const baseUri = "https://apiv2.nomadsprint.com";
 
 interface IApiLinkResponse {
   data: string;
