@@ -5,6 +5,7 @@ import Business from "./components/Business";
 import Tech from "./components/Tech";
 import UX from "./components/UX";
 import MVP from "./components/MVP";
+import Profile from "./components/Profile";
 import LandingPage from "./containers/LandingPage";
 import Navbar from "./components/Navbar";
 import "./styles/App.css";
@@ -32,6 +33,9 @@ const App = (): ReactElement => {
           </Route>
           <Route path="/tech">
             <Tech />
+          </Route>
+          <Route path="/profile">
+            <Profile />
           </Route>
         </div>
       </div>

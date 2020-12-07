@@ -11,20 +11,14 @@ const NavBar: React.FC = (): React.ReactElement => {
         </Link>
       </h1>
       <ul>
-        <Link to="/business">
-          <li>Business</li>
+        <Link to="/">
+          <li>Events</li>
         </Link>
         <Link to="/mvp">
-          <li>MVP</li>
+          <li>My Profile</li>
         </Link>
         <Link to="/overview">
-          <li>Overview</li>
-        </Link>
-        <Link to="/tech">
-          <li>Tech</li>
-        </Link>
-        <Link to="/ux">
-          <li>UX</li>
+          <li>About</li>
         </Link>
       </ul>
     </nav>
