@@ -1,4 +1,4 @@
-import React, { ReactElement } from "react";
+import React, { ReactElement, useEffect } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import About from "./components/About";
 import Profile from "./components/Profile";
@@ -9,7 +9,13 @@ import Navbar from "./components/Navbar";
 import "./styles/App.css";
 
 const App = (): ReactElement => {
-  console.log("apploc: ", window.location);
+  const hasLocation = window && window.location;
+  useEffect(() => {
+    if (window) {
+      console.log(window.location);
+    }
+  }, [hasLocation]);
+
   return (
     <Router>
       <div className="App">
@@ -25,9 +31,6 @@ const App = (): ReactElement => {
             <NewEvent />
           </Route>
           <Route path="/profile">
-            <Profile />
-          </Route>
-          <Route path="/profile/">
             <Profile />
           </Route>
           <Route path="/event/:id">
