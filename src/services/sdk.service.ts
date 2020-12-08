@@ -1,5 +1,6 @@
 import axios from "axios";
-const baseUri = "https://apiv2.nomadsprint.com";
+// const baseUri = "https://apiv2.nomadsprint.com";
+const baseUri = "http://localhost:8000";
 
 interface IApiLinkResponse {
   data: string;
@@ -13,6 +14,22 @@ interface IUser {
 interface IUserResponse {
   data: IUser;
 }
+
+const postToken = (code: string): Promise<boolean> => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const resp = await axios({
+        method: "POST",
+        url: `${baseUri}/token`,
+        data: { code },
+      });
+      console.log("POST res:", resp);
+      resolve(true);
+    } catch (e) {
+      reject(e);
+    }
+  });
+};
 
 const getVerificationLink = (): Promise<IApiLinkResponse> => {
   return new Promise(async (resolve, reject) => {
@@ -45,6 +62,7 @@ const getUserInfo = (): Promise<IUserResponse> => {
 const SDKService = {
   getVerificationLink,
   getUserInfo,
+  postToken,
 };
 
 export default SDKService;

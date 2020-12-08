@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Button } from "createistic-designsystem";
 import SDKService from "../services/sdk.service";
-
-// We may receive a code back once verified e.g lM3DPo5VpVBi55Jrl1f6rn_OMBMpMToLbDZ6xbq_Bhc
-// Store this in our DB along with an identifier for the user (email)
+import { useLocation, useHistory } from "react-router-dom";
 
 interface IUser {
   title?: string;
@@ -14,6 +12,7 @@ interface IUser {
 
 interface IState {
   user?: IUser;
+  verified?: string;
   set: boolean;
 }
 
@@ -47,22 +46,39 @@ const UserDetails: React.FC<{ user: IUser }> = ({ user }): React.ReactElement =>
   </div>
 );
 
+const useQuery = (search: string) => {
+  return new URLSearchParams(search);
+};
+
 const Profile = (): React.ReactElement => {
+  const loc = useLocation();
+  const history = useHistory();
   const [state, setState] = useState(initialState);
+
   useEffect(() => {
-    getUserData().then((data) => {
-      console.log("d:", data);
-      setState((prevState) => ({ ...prevState, user: data, set: true }));
-    });
+    const code = useQuery(loc.search).get("code");
+    if (code) {
+      setState((prevState) => ({ ...prevState, verified: "loading" }));
+      SDKService.postToken(code).then(() => {
+        history.push("/profile");
+        setState((prevState) => ({ ...prevState, verified: code }));
+      });
+    }
   }, []);
 
-  console.log("state:", state);
+  const verified = state.verified && state.verified !== "loading";
+
+  useEffect(() => {
+    getUserData().then((data) => {
+      setState((prevState) => ({ ...prevState, user: data, set: true }));
+    });
+  }, [verified]);
 
   return (
     <div className="Notes">
       <h1>Your details</h1>
       {state.user && <UserDetails user={state.user} />}
-      {state.user && state.user.email && <h1></h1>}
+      {verified && <div>Verified</div>}
       <Button type="primary" text="Get verified" onClick={initiateAuth} />
     </div>
   );
