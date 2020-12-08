@@ -25,4 +25,7 @@ const sprint2: SprintEvent = {
   location: "Lisbon",
 };
 
+export const useQuery = (search: string): URLSearchParams => {
+  return new URLSearchParams(search);
+};
 export const testData = [sprint1, sprint2];

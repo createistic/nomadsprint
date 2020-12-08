@@ -11,8 +11,11 @@ import "./styles/App.css";
 const App = (): ReactElement => {
   const hasLocation = window && window.location;
   useEffect(() => {
-    if (window) {
+    if (hasLocation) {
       console.log(window.location);
+      if (window.location.href && window.location.href.includes("/?code=")) {
+        window.location.href = window.location.href.replace("/?code=", "/profile?code=");
+      }
     }
   }, [hasLocation]);
 

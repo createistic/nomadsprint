@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Button } from "createistic-designsystem";
 import SDKService from "../services/sdk.service";
-import { User } from "../services/utils";
+import { User, useQuery } from "../services/utils";
 import { useLocation, useHistory } from "react-router-dom";
 
 interface IState {
@@ -39,10 +39,6 @@ const UserDetails: React.FC<{ user: User }> = ({ user }): React.ReactElement => 
     <p>{user.email}</p>
   </div>
 );
-
-const useQuery = (search: string) => {
-  return new URLSearchParams(search);
-};
 
 const Profile = (): React.ReactElement => {
   const loc = useLocation();
