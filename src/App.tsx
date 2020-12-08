@@ -8,7 +8,7 @@ import LandingPage from "./containers/LandingPage";
 import Navbar from "./components/Navbar";
 import SDKService from "./services/sdk.service";
 import { UserContext } from "./services/appContexts";
-import { IAppState } from "./services/utils";
+import { IAppState, testData } from "./services/utils";
 import "./styles/App.css";
 
 const getUserData = async () => {
@@ -20,10 +20,19 @@ const App = (): ReactElement => {
   const hasLocation = window && window.location;
   const [state, setState] = useState<IAppState>({});
 
+  // Hydrate from local storage
+  useEffect(() => {
+    const localState = localStorage.getItem("localState");
+    const updatedState = localState ? JSON.parse(localState) : {};
+    if (!updatedState.eventData) {
+      updatedState.eventData = testData;
+    }
+    setState((prevState) => ({ ...prevState, ...updatedState }));
+  }, []);
+
   // Handle trailing space issue
   useEffect(() => {
     if (hasLocation) {
-      console.log(window.location);
       if (window.location.href && window.location.href.includes("/?code=")) {
         if (!window.location.href.includes("localhost")) {
           window.location.href = window.location.href.replace("/?code=", "/profile?code=");
@@ -38,6 +47,11 @@ const App = (): ReactElement => {
       setState((prevState) => ({ ...prevState, user: data }));
     });
   }, [state.verified]);
+
+  // Sync state changes to local storage
+  useEffect(() => {
+    localStorage.setItem("localState", JSON.stringify(state));
+  }, [state.user, state.eventData, state.verified]);
 
   return (
     <Router>

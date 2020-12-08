@@ -1,10 +1,5 @@
 import React from "react";
-import { User } from "./utils";
+import { IAppState } from "./utils";
 
-interface IUserContext {
-  user?: User;
-  verified?: string;
-}
-
-const UserContext = React.createContext<IUserContext>({});
+const UserContext = React.createContext<IAppState>({});
 export { UserContext };

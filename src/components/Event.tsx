@@ -1,17 +1,38 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Button } from "createistic-designsystem";
 import { useParams } from "react-router-dom";
-import { testData } from "../services/utils";
+import { UserContext } from "../services/appContexts";
 
 const Event = (): React.ReactElement => {
+  const context = useContext(UserContext);
   const params: { id: string } = useParams();
-  const evData = testData.filter((d) => d.id === params.id);
 
   return (
     <div className="Notes">
-      <h1>{evData[0].name}</h1>
-      <div>{evData[0].location}</div>
-      <Button type="primary" text="Apply to join" onClick={() => alert("You must be verified")} />
+      {context.eventData &&
+        context.eventData
+          .filter((d) => d.id === params.id)
+          .map((d) => {
+            return (
+              <div key={d.id}>
+                <div>{d.name}</div>
+                <div>{d.location}</div>
+              </div>
+            );
+          })}
+      {
+        <Button
+          type="primary"
+          text="Apply to join"
+          onClick={() => {
+            if (!context.verified) {
+              alert("Please complete verification in the My Profile section");
+            } else {
+              alert("Thank you for your application 😀");
+            }
+          }}
+        />
+      }
     </div>
   );
 };

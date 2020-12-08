@@ -16,6 +16,7 @@ export type SprintEvent = {
 export interface IAppState {
   user?: User;
   verified?: string;
+  eventData?: SprintEvent[];
 }
 
 export interface IState {
