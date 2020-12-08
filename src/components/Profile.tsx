@@ -1,17 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Button } from "createistic-designsystem";
 import SDKService from "../services/sdk.service";
+import { User } from "../services/utils";
 import { useLocation, useHistory } from "react-router-dom";
 
-interface IUser {
-  title?: string;
-  email?: string;
-  given_name?: string;
-  family_name?: string;
-}
-
 interface IState {
-  user?: IUser;
+  user?: User;
   verified?: string;
   set: boolean;
 }
@@ -37,7 +31,7 @@ const getUserData = async () => {
   return res.data;
 };
 
-const UserDetails: React.FC<{ user: IUser }> = ({ user }): React.ReactElement => (
+const UserDetails: React.FC<{ user: User }> = ({ user }): React.ReactElement => (
   <div>
     <p>
       {user.title} {user.given_name} {user.family_name}

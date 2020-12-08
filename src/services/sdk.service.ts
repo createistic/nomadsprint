@@ -1,18 +1,14 @@
 import axios from "axios";
-// const baseUri = "https://apiv2.nomadsprint.com";
-const baseUri = "http://localhost:8000";
+const baseUri = "https://apiv2.nomadsprint.com";
+import { User } from "./utils";
+// const baseUri = "http://localhost:8000";
 
 interface IApiLinkResponse {
   data: string;
 }
 
-interface IUser {
-  title?: string;
-  email?: string;
-}
-
 interface IUserResponse {
-  data: IUser;
+  data: User;
 }
 
 const postToken = (code: string): Promise<boolean> => {

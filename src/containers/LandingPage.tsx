@@ -8,9 +8,9 @@ const LandingPage = (): React.ReactElement => {
     <div className="Notes">
       <h1>Displaying events...</h1>
       <div className="BoxContainer">
-        <div className="Box">1</div>
-        <div className="Box">2</div>
-        <div className="Box">3</div>
+        <div className="Box">Event 1</div>
+        <div className="Box">Event 2</div>
+        <div className="Box">Event 3</div>
       </div>
       <Button type="primary" text="Create a new event" onClick={() => history.push("/new")} />
     </div>
