@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import About from "./components/About";
 import Profile from "./components/Profile";
 import NewEvent from "./components/NewEvent";
+import Event from "./components/Event";
 import LandingPage from "./containers/LandingPage";
 import Navbar from "./components/Navbar";
 import "./styles/App.css";
@@ -24,6 +25,9 @@ const App = (): ReactElement => {
           </Route>
           <Route path="/profile">
             <Profile />
+          </Route>
+          <Route path="/event/:id">
+            <Event />
           </Route>
         </div>
       </div>

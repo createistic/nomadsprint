@@ -12,6 +12,7 @@
 .BoxContainer {
   display: flex;
   margin-bottom: 40px;
+  flex-wrap: wrap;
 }
 
 .Box {
@@ -19,6 +20,8 @@
   width: 300px;
   height: 300px;
   margin-right: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
 }
 
 .App-body {

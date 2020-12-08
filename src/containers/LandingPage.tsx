@@ -1,16 +1,18 @@
 import { Button } from "createistic-designsystem";
 import React from "react";
 import { useHistory } from "react-router-dom";
+import Box from "../components/Box";
+import { testData } from "../services/utils";
 
 const LandingPage = (): React.ReactElement => {
   const history = useHistory();
   return (
     <div className="Notes">
-      <h1>Displaying events...</h1>
+      <h1>Join your next work adventure...</h1>
       <div className="BoxContainer">
-        <div className="Box">Event 1</div>
-        <div className="Box">Event 2</div>
-        <div className="Box">Event 3</div>
+        {testData.map((data) => {
+          return <Box key={data.id} event={data} />;
+        })}
       </div>
       <Button type="primary" text="Create a new event" onClick={() => history.push("/new")} />
     </div>

@@ -1,6 +1,6 @@
 import axios from "axios";
-const baseUri = "https://apiv2.nomadsprint.com";
 import { User } from "./utils";
+const baseUri = "https://apiv2.nomadsprint.com";
 // const baseUri = "http://localhost:8000";
 
 interface IApiLinkResponse {
