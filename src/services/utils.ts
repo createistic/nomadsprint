@@ -13,6 +13,17 @@ export type SprintEvent = {
   location?: string,
 };
 
+export interface IAppState {
+  user?: User;
+  verified?: string;
+}
+
+export interface IState {
+  user?: User;
+  verified?: string;
+  set: boolean;
+}
+
 const sprint1: SprintEvent = {
   id: "1",
   name: "Event 1",
