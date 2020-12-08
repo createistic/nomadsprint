@@ -1,5 +1,5 @@
 import React, { ReactElement } from "react";
-import { BrowserRouter as Router, Route, useLocation } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import About from "./components/About";
 import Profile from "./components/Profile";
 import NewEvent from "./components/NewEvent";
@@ -9,8 +9,7 @@ import Navbar from "./components/Navbar";
 import "./styles/App.css";
 
 const App = (): ReactElement => {
-  const loc = useLocation();
-  console.log("apploc: ", loc);
+  console.log("apploc: ", window.location);
   return (
     <Router>
       <div className="App">
