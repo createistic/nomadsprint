@@ -3,7 +3,6 @@
 .App {
   text-align: center;
   font-family: "Work Sans", sans-serif;
-  background-color: yellow;
   min-height: 100vh;
 }
 
@@ -54,4 +53,14 @@
 
 .Footer div {
   flex-grow: 1;
+}
+
+.LogoBanner img {
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.LogoBanner {
+  border-top: 5px solid;
+  border-color: #d0cde1;
 }

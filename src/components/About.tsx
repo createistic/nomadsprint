@@ -1,26 +1,13 @@
 import React from "react";
-import { Button } from "createistic-designsystem";
-import { useHistory } from "react-router-dom";
 
-interface IAboutProps {
-  setVerified: (code: string) => void;
-}
-
-const About: React.FC<IAboutProps> = ({ setVerified }): React.ReactElement => {
-  const history = useHistory();
+const About: React.FC = (): React.ReactElement => {
   return (
     <div className="Notes">
       <h1>About</h1>
-      <p>Nomad Sprint offers a unique work experiences.</p>
-      <p>Leave your email, to receive updates</p>
-      <Button
-        type="primary"
-        text="Reset verification"
-        onClick={() => {
-          setVerified("");
-          history.push("/");
-        }}
-      />
+      <p>Nomad Sprint was created during the Santander Digital Trust Hack.</p>
+      <p>This product is currently being developed.</p>
+      <p>Leave your email, to receive updates about this product.</p>
+      <p>We are excited to be bringing these unique work experience opportunities.</p>
     </div>
   );
 };
