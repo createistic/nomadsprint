@@ -65,7 +65,7 @@ const App = (): ReactElement => {
         <div className="App">
           <div className="App-body">
             <Navbar />
-            <div className="App-content">
+            <div>
               <Route exact path="/">
                 <LandingPage />
               </Route>

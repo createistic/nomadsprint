@@ -25,7 +25,7 @@ h1 {
 }
 
 textarea,
-input {
+.form input {
   display: block;
   box-sizing: border-box;
   width: 100%;

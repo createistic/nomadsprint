@@ -8,7 +8,7 @@ const Event = (): React.ReactElement => {
   const params: { id: string } = useParams();
 
   return (
-    <div className="Notes">
+    <div className="Notes App-content">
       {context.eventData &&
         context.eventData
           .filter((d) => d.id === params.id)

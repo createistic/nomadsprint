@@ -1,6 +1,6 @@
 import React from "react";
 
-const Business = (): React.ReactElement => (
+const Banner = (): React.ReactElement => (
   <div className="LogoBanner">
     <img
       alt="santander"
@@ -17,4 +17,4 @@ const Business = (): React.ReactElement => (
   </div>
 );
 
-export default Business;
+export default Banner;

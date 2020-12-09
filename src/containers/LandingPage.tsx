@@ -8,13 +8,15 @@ const LandingPage = (): React.ReactElement => {
   const history = useHistory();
   return (
     <div className="Notes">
-      <h1>Join your next work adventure...</h1>
-      <div className="BoxContainer">
-        {testData.map((data) => {
-          return <Box key={data.id} event={data} />;
-        })}
+      <h1 className="H1Banner">Join your next work adventure...</h1>
+      <div className="App-content">
+        <div className="BoxContainer">
+          {testData.map((data) => {
+            return <Box key={data.id} event={data} />;
+          })}
+        </div>
+        <Button type="primary" text="Create a new event" onClick={() => history.push("/new")} />
       </div>
-      <Button type="primary" text="Create a new event" onClick={() => history.push("/new")} />
     </div>
   );
 };

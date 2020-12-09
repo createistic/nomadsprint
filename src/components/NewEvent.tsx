@@ -3,7 +3,7 @@ import NewEventForm from "./NewEventForm";
 
 const NewEvent = (): React.ReactElement => {
   return (
-    <div className="Notes">
+    <div className="Notes App-content">
       <h1>
         Your on the way to creating your dream work experience powered by Creatisitc & Santander
         Digital Trust

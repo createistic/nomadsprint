@@ -36,24 +36,26 @@ const Profile: React.FC<IProfileProps> = ({ setVerified }): React.ReactElement =
 
   return (
     <div className="Notes">
-      <h1>Your details</h1>
-      {context.user && <UserDetails user={context.user} />}
-      {context.verified && <div>You are verified!</div>}
-      <br />
-      {!context.verified && <Button type="primary" text="Get verified" onClick={initiateAuth} />}
-      {context.verified && (
-        <>
-          <Button type="primary" text="Go to events" onClick={() => history.push("/")} />
-          <Button
-            type="primary"
-            text="Reset verification"
-            onClick={() => {
-              setVerified("");
-              history.push("/");
-            }}
-          />
-        </>
-      )}
+      <h1 className="H1Banner">Your details</h1>
+      <div className="App-content">
+        {context.user && <UserDetails user={context.user} />}
+        {context.verified && <div>You are verified!</div>}
+        <br />
+        {!context.verified && <Button type="primary" text="Get verified" onClick={initiateAuth} />}
+        {context.verified && (
+          <>
+            <Button type="primary" text="Go to events" onClick={() => history.push("/")} />
+            <Button
+              type="primary"
+              text="Reset verification"
+              onClick={() => {
+                setVerified("");
+                history.push("/");
+              }}
+            />
+          </>
+        )}
+      </div>
     </div>
   );
 };
