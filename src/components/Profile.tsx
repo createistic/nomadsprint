@@ -44,8 +44,6 @@ const Profile: React.FC<IProfileProps> = ({ setVerified }): React.ReactElement =
       {context.verified && (
         <>
           <Button type="primary" text="Go to events" onClick={() => history.push("/")} />
-          <br />
-          <br />
           <Button
             type="primary"
             text="Reset verification"

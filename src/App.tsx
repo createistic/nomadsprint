@@ -7,7 +7,7 @@ import Event from "./components/Event";
 import LandingPage from "./containers/LandingPage";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import Banner from "./components/Banner";
+// import Banner from "./components/Banner";
 import SDKService from "./services/sdk.service";
 import { UserContext } from "./services/appContexts";
 import { IAppState, testData } from "./services/utils";
@@ -83,7 +83,7 @@ const App = (): ReactElement => {
               </Route>
             </div>
           </div>
-          <Banner />
+          {/* <Banner /> */}
           <Footer />
         </div>
       </UserContext.Provider>
