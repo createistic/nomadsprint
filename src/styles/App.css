@@ -3,6 +3,8 @@
 .App {
   text-align: center;
   font-family: "Work Sans", sans-serif;
+  background-color: yellow;
+  min-height: 100vh;
 }
 
 .Notes {
@@ -25,23 +27,31 @@
 }
 
 .App-body {
-  margin: 20px;
   background-color: #fff;
   text-align: left;
   color: #000;
+  padding-bottom: 100px;
+  min-height: calc(100vh - 170px);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.App-content {
+  padding-left: 25px;
+  padding-right: 25px;
 }
 
 .App-link {
   color: #61dafb;
+}
+
+.Footer {
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  height: 50px;
+  display: flex;
+  background-color: #d0cde1;
+}
+
+.Footer div {
+  flex-grow: 1;
 }

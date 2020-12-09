@@ -6,6 +6,7 @@ import NewEvent from "./components/NewEvent";
 import Event from "./components/Event";
 import LandingPage from "./containers/LandingPage";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import SDKService from "./services/sdk.service";
 import { UserContext } from "./services/appContexts";
 import { IAppState, testData } from "./services/utils";
@@ -53,33 +54,35 @@ const App = (): ReactElement => {
     localStorage.setItem("localState", JSON.stringify(state));
   }, [state.user, state.eventData, state.verified]);
 
+  const setVerified = (code: string) => {
+    setState((prevState) => ({ ...prevState, verified: code }));
+  };
+
   return (
     <Router>
       <UserContext.Provider value={{ ...state }}>
         <div className="App">
-          <Navbar />
           <div className="App-body">
-            <Route exact path="/">
-              <LandingPage />
-            </Route>
-            <Route path="/about">
-              <About />
-            </Route>
-            <Route path="/new">
-              <NewEvent />
-            </Route>
-            <Route path="/profile">
-              <Profile
-                setVerified={(code) => {
-                  console.log(code);
-                  setState((prevState) => ({ ...prevState, verified: code }));
-                }}
-              />
-            </Route>
-            <Route path="/event/:id">
-              <Event />
-            </Route>
+            <Navbar />
+            <div className="App-content">
+              <Route exact path="/">
+                <LandingPage />
+              </Route>
+              <Route path="/about">
+                <About setVerified={setVerified} />
+              </Route>
+              <Route path="/new">
+                <NewEvent />
+              </Route>
+              <Route path="/profile">
+                <Profile setVerified={setVerified} />
+              </Route>
+              <Route path="/event/:id">
+                <Event />
+              </Route>
+            </div>
           </div>
+          <Footer />
         </div>
       </UserContext.Provider>
     </Router>
