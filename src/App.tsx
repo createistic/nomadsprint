@@ -7,10 +7,9 @@ import Event from "./components/Event";
 import LandingPage from "./containers/LandingPage";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-// import Banner from "./components/Banner";
 import SDKService from "./services/sdk.service";
 import { UserContext } from "./services/appContexts";
-import { IAppState, testData } from "./services/utils";
+import { IAppState, SprintEvent, testData } from "./services/utils";
 import "./styles/App.css";
 
 const getUserData = async () => {
@@ -20,7 +19,7 @@ const getUserData = async () => {
 
 const App = (): ReactElement => {
   const hasLocation = window && window.location;
-  const [state, setState] = useState<IAppState>({});
+  const [state, setState] = useState<IAppState>({ eventData: [] });
 
   // Hydrate from local storage
   useEffect(() => {
@@ -59,6 +58,11 @@ const App = (): ReactElement => {
     setState((prevState) => ({ ...prevState, verified: code }));
   };
 
+  const addEvent = (sprint: SprintEvent) => {
+    console.log("spr:", sprint);
+    setState((prevState) => ({ ...prevState, eventData: [...prevState.eventData, sprint] }));
+  };
+
   return (
     <Router>
       <UserContext.Provider value={{ ...state }}>
@@ -73,7 +77,7 @@ const App = (): ReactElement => {
                 <About />
               </Route>
               <Route path="/new">
-                <NewEvent />
+                <NewEvent addEvent={addEvent} newId={`${state.eventData.length + 1}`} />
               </Route>
               <Route path="/profile">
                 <Profile setVerified={setVerified} />
