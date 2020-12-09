@@ -1,12 +1,12 @@
 import React from "react";
 import { bgUrls, SprintEvent } from "../services/utils";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const Box: React.FC<{ event: SprintEvent }> = ({ event }): React.ReactElement => {
   const history = useHistory();
   let index = parseInt(event.id);
   if (index >= bgUrls.length) {
-    index = Math.max(bgUrls.length - 1 - index, 0);
+    index = Math.max(index - bgUrls.length, 0);
   }
 
   return (
