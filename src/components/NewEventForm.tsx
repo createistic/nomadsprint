@@ -1,8 +1,8 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import UseForm, { useForm } from "react-hook-form";
+// import ReactDOM from "react-dom";
+import { useForm } from "react-hook-form";
 import "../styles/NewEvent.css";
-import { Button } from "createistic-designsystem";
+// import { Button } from "createistic-designsystem";
 
 const NewEventForm = (): React.ReactElement => {
   const {
