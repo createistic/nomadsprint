@@ -9,6 +9,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import SDKService from "./services/sdk.service";
 import { UserContext } from "./services/appContexts";
+import Modal from "./components/Modal";
 import { IAppState, SprintEvent, testData } from "./services/utils";
 import "./styles/App.css";
 
@@ -61,6 +62,10 @@ const App = (): ReactElement => {
     setState((prevState) => ({ ...prevState, verified: code }));
   };
 
+  const setMessage = (msg: string) => {
+    setState((prevState) => ({ ...prevState, message: msg }));
+  };
+
   const addEvent = (sprint: SprintEvent) => {
     setState((prevState) => ({ ...prevState, eventData: [...prevState.eventData, sprint] }));
   };
@@ -81,6 +86,7 @@ const App = (): ReactElement => {
     <Router>
       <UserContext.Provider value={{ ...state }}>
         <div className="App">
+          {state.message && <Modal message={state.message} onClose={() => setMessage("")} />}
           <div className="App-body">
             <Navbar />
             <div>
@@ -97,7 +103,7 @@ const App = (): ReactElement => {
                 <Profile sprints={state.eventData} setVerified={setVerified} />
               </Route>
               <Route path="/event/:id">
-                <Event addAttendance={addAttendance} />
+                <Event setMessage={setMessage} addAttendance={addAttendance} />
               </Route>
             </div>
           </div>

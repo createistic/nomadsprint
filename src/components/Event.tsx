@@ -6,9 +6,10 @@ import { bgUrls } from "../services/utils";
 
 interface IEventProps {
   addAttendance: (id: string) => void;
+  setMessage: (msg: string) => void;
 }
 
-const Event: React.FC<IEventProps> = ({ addAttendance }): React.ReactElement => {
+const Event: React.FC<IEventProps> = ({ addAttendance, setMessage }): React.ReactElement => {
   const context = useContext(UserContext);
   const params: { id: string } = useParams();
   let index = parseInt(params.id);
@@ -40,10 +41,10 @@ const Event: React.FC<IEventProps> = ({ addAttendance }): React.ReactElement => 
             text="Apply to join"
             onClick={() => {
               if (!context.verified) {
-                alert("Please complete verification in the My Profile section");
+                setMessage("Please complete verification in the My Profile section");
               } else {
                 addAttendance(params.id);
-                alert("Thank you for your application 😀");
+                setMessage("Thank you for your application tre 😀");
               }
             }}
           />

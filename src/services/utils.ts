@@ -20,6 +20,7 @@ export interface IAppState {
   user: User;
   verified?: string;
   eventData: SprintEvent[];
+  message?: string;
 }
 
 const sprint1: SprintEvent = {
