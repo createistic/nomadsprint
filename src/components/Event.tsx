@@ -2,15 +2,21 @@ import React, { useContext } from "react";
 import { Button } from "createistic-designsystem";
 import { useParams } from "react-router-dom";
 import { UserContext } from "../services/appContexts";
+import { bgUrls } from "../services/utils";
 
 const Event = (): React.ReactElement => {
   const context = useContext(UserContext);
   const params: { id: string } = useParams();
+  let index = parseInt(params.id);
+  if (index >= bgUrls.length) {
+    index = Math.max(index - bgUrls.length, 0);
+  }
 
   return (
     <div className="Notes">
       <h1 className="H1Banner">Event Details</h1>
       <div className="App-content">
+        <img height="300" alt="travel" src={`${bgUrls[index]}`} />
         {context.eventData &&
           context.eventData
             .filter((d) => d.id === params.id)
@@ -25,6 +31,7 @@ const Event = (): React.ReactElement => {
             })}
         {
           <Button
+            style={{ marginTop: 30 }}
             type="primary"
             text="Apply to join"
             onClick={() => {

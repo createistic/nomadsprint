@@ -31,6 +31,11 @@ const Box: React.FC<{ event: SprintEvent }> = ({ event }): React.ReactElement =>
       <span style={{ backgroundColor: "rgba(0, 0, 0, 0.75)", padding: 5, color: "#FFF" }}>
         {event.location}
       </span>
+      {event.funding && (
+        <span style={{ backgroundColor: "rgba(90, 97, 174, 0.75)", padding: 5, color: "#FFF" }}>
+          Funded
+        </span>
+      )}
       <span
         style={{
           backgroundColor: "rgba(255, 255, 255, 0.7)",
