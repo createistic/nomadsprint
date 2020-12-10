@@ -47,7 +47,7 @@ const App = (): ReactElement => {
     getUserData().then((data) => {
       setState((prevState) => ({
         ...prevState,
-        user: { ...prevState.user, email: data.email || "" },
+        user: { ...data, ...prevState.user },
       }));
     });
   }, [state.verified]);
@@ -67,9 +67,12 @@ const App = (): ReactElement => {
 
   const addAttendance = (id: string) => {
     setState((prevState) => {
+      const events = prevState.user.events.includes(id)
+        ? prevState.user.events
+        : prevState.user.events.concat(id);
       return {
         ...prevState,
-        user: { ...prevState.user, events: prevState.user.events.concat(id) },
+        user: { ...prevState.user, events },
       };
     });
   };
