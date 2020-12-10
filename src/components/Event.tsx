@@ -4,7 +4,11 @@ import { useParams } from "react-router-dom";
 import { UserContext } from "../services/appContexts";
 import { bgUrls } from "../services/utils";
 
-const Event = (): React.ReactElement => {
+interface IEventProps {
+  addAttendance: (id: string) => void;
+}
+
+const Event: React.FC<IEventProps> = ({ addAttendance }): React.ReactElement => {
   const context = useContext(UserContext);
   const params: { id: string } = useParams();
   let index = parseInt(params.id);
@@ -38,6 +42,7 @@ const Event = (): React.ReactElement => {
               if (!context.verified) {
                 alert("Please complete verification in the My Profile section");
               } else {
+                addAttendance(params.id);
                 alert("Thank you for your application 😀");
               }
             }}

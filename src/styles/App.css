@@ -78,6 +78,8 @@
   margin-bottom: 100px;
   display: flex;
   flex-wrap: wrap;
+  padding-top: 60px;
+  padding-bottom: 60px;
 }
 
 .EmailBanner div {

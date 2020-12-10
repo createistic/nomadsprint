@@ -10,7 +10,7 @@
     "@types/jest": "^26.0.15",
     "@types/node": "^12.0.0",
     "axios": "^0.21.0",
-    "createistic-designsystem": "github:createistic/designsystem#main",
+    "createistic-designsystem": "1.0.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-hook-form": "^6.12.2",

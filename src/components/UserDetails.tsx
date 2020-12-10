@@ -4,9 +4,9 @@ import { User } from "../services/utils";
 const UserDetails: React.FC<{ user: User }> = ({ user }): React.ReactElement => (
   <div>
     <p>
-      {user.title} {user.given_name} {user.family_name}
+      Name: {user.title} {user.given_name} {user.family_name}
     </p>
-    <p>{user.email}</p>
+    {user.email && <p>Email: {user.email}</p>}
   </div>
 );
 

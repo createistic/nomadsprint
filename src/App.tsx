@@ -19,7 +19,7 @@ const getUserData = async () => {
 
 const App = (): ReactElement => {
   const hasLocation = window && window.location;
-  const [state, setState] = useState<IAppState>({ eventData: [] });
+  const [state, setState] = useState<IAppState>({ eventData: [], user: { events: [] } });
 
   // Hydrate from local storage
   useEffect(() => {
@@ -45,22 +45,33 @@ const App = (): ReactElement => {
   // Set the logged in user, we are hilton
   useEffect(() => {
     getUserData().then((data) => {
-      setState((prevState) => ({ ...prevState, user: data }));
+      setState((prevState) => ({
+        ...prevState,
+        user: { ...prevState.user, email: data.email || "" },
+      }));
     });
   }, [state.verified]);
 
   // Sync state changes to local storage
   useEffect(() => {
     localStorage.setItem("localState", JSON.stringify(state));
-  }, [state.user, state.eventData, state.verified]);
+  }, [state.user, state.eventData, state.verified, state.user.events.length]);
 
   const setVerified = (code: string) => {
     setState((prevState) => ({ ...prevState, verified: code }));
   };
 
   const addEvent = (sprint: SprintEvent) => {
-    console.log("spr:", sprint);
     setState((prevState) => ({ ...prevState, eventData: [...prevState.eventData, sprint] }));
+  };
+
+  const addAttendance = (id: string) => {
+    setState((prevState) => {
+      return {
+        ...prevState,
+        user: { ...prevState.user, events: prevState.user.events.concat(id) },
+      };
+    });
   };
 
   return (
@@ -80,14 +91,13 @@ const App = (): ReactElement => {
                 <NewEvent addEvent={addEvent} newId={`${state.eventData.length + 1}`} />
               </Route>
               <Route path="/profile">
-                <Profile setVerified={setVerified} />
+                <Profile sprints={state.eventData} setVerified={setVerified} />
               </Route>
               <Route path="/event/:id">
-                <Event />
+                <Event addAttendance={addAttendance} />
               </Route>
             </div>
           </div>
-          {/* <Banner /> */}
           <Footer />
         </div>
       </UserContext.Provider>

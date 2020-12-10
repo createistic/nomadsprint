@@ -14,12 +14,11 @@ interface IUserResponse {
 const postToken = (code: string): Promise<boolean> => {
   return new Promise(async (resolve, reject) => {
     try {
-      const resp = await axios({
+      await axios({
         method: "POST",
         url: `${baseUri}/token`,
         data: { code },
       });
-      console.log("POST res:", resp);
       resolve(true);
     } catch (e) {
       reject(e);

@@ -3,6 +3,7 @@ export type User = {
   email?: string,
   given_name?: string,
   family_name?: string,
+  events: string[],
 };
 
 export type SprintEvent = {
@@ -12,10 +13,11 @@ export type SprintEvent = {
   endDate?: Date,
   location?: string,
   funding?: number,
+  keywords?: string[],
 };
 
 export interface IAppState {
-  user?: User;
+  user: User;
   verified?: string;
   eventData: SprintEvent[];
 }
@@ -25,12 +27,21 @@ const sprint1: SprintEvent = {
   name: "Sponsored App Hack",
   location: "Remote",
   funding: 2000,
+  keywords: ["development"],
 };
 
 const sprint2: SprintEvent = {
   id: "2",
   name: "Logo Design",
   location: "Lisbon",
+  keywords: ["design"],
+};
+
+const sprint3: SprintEvent = {
+  id: "3",
+  name: "SaltEdge Design Spint",
+  location: "Ottawa",
+  keywords: ["design"],
 };
 
 export const useQuery = (search: string): URLSearchParams => {
@@ -50,4 +61,4 @@ export const bgUrls = [
   "https://images.unsplash.com/photo-1483247416020-58799b6de4c1?ixid=MXwxMjA3fDB8MHxzZWFyY2h8OTJ8fHRyYXZlbHxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
 ];
 
-export const testData = [sprint1, sprint2];
+export const testData = [sprint1, sprint2, sprint3];
