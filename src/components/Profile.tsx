@@ -2,7 +2,7 @@ import React, { useEffect, useContext } from "react";
 import { Button } from "createistic-designsystem";
 import SDKService from "../services/sdk.service";
 import { SprintEvent, useQuery } from "../services/utils";
-import { useLocation, useHistory } from "react-router-dom";
+import { useLocation, useHistory, Link } from "react-router-dom";
 import { UserContext } from "../services/appContexts";
 import { getRecommendations } from "../services/ai.service";
 import UserDetails from "./UserDetails";
@@ -59,9 +59,9 @@ const Profile: React.FC<IProfileProps> = ({ setVerified, sprints }): React.React
             Other recommended events:{" "}
             {recommendations.map((e) => {
               return (
-                <a key={e.id} href={`/event/${e.id}`}>
+                <Link key={e.id} to={`/event/${e.id}`}>
                   {e.name}
-                </a>
+                </Link>
               );
             })}
           </p>
