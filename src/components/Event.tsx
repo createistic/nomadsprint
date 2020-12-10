@@ -44,7 +44,7 @@ const Event: React.FC<IEventProps> = ({ addAttendance, setMessage }): React.Reac
                 setMessage("Please complete verification in the My Profile section");
               } else {
                 addAttendance(params.id);
-                setMessage("Thank you for your application tre 😀");
+                setMessage("Thank you for your application :)");
               }
             }}
           />

@@ -56,7 +56,7 @@ const App = (): ReactElement => {
   // Sync state changes to local storage
   useEffect(() => {
     localStorage.setItem("localState", JSON.stringify(state));
-  }, [state.user, state.eventData, state.verified, state.user.events.length]);
+  }, [state.user, state.eventData, state.verified, state.user.events.length, state.message]);
 
   const setVerified = (code: string) => {
     setState((prevState) => ({ ...prevState, verified: code }));
