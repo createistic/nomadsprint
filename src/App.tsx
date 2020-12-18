@@ -1,5 +1,5 @@
 import React, { ReactElement, useEffect, useState } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import About from "./components/About";
 import Profile from "./components/Profile";
 import NewEvent from "./components/NewEvent";
@@ -104,6 +104,9 @@ const App = (): ReactElement => {
               </Route>
               <Route exact path="/event/:id">
                 <Event setMessage={setMessage} addAttendance={addAttendance} />
+              </Route>
+              <Route path="*">
+                <Redirect to="/" />
               </Route>
             </div>
           </div>
