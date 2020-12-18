@@ -105,9 +105,6 @@ const App = (): ReactElement => {
               <Route exact path="/event/:id">
                 <Event setMessage={setMessage} addAttendance={addAttendance} />
               </Route>
-              <Route path="*">
-                <Redirect to="/" />
-              </Route>
             </div>
           </div>
           <Footer />
