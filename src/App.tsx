@@ -1,5 +1,5 @@
 import React, { ReactElement, useEffect, useState } from "react";
-import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect, Switch } from "react-router-dom";
 import About from "./components/About";
 import Profile from "./components/Profile";
 import NewEvent from "./components/NewEvent";
@@ -90,24 +90,26 @@ const App = (): ReactElement => {
           <div className="App-body">
             <Navbar />
             <div>
-              <Route exact path="/">
-                <LandingPage />
-              </Route>
-              <Route exact path="/about">
-                <About />
-              </Route>
-              <Route exact path="/new">
-                <NewEvent addEvent={addEvent} newId={`${state.eventData.length + 1}`} />
-              </Route>
-              <Route exact path="/profile">
-                <Profile sprints={state.eventData} setVerified={setVerified} />
-              </Route>
-              <Route exact path="/event/:id">
-                <Event setMessage={setMessage} addAttendance={addAttendance} />
-              </Route>
-              <Route path="*">
-                <Redirect to="/" />
-              </Route>
+              <Switch>
+                <Route exact path="/">
+                  <LandingPage />
+                </Route>
+                <Route exact path="/about">
+                  <About />
+                </Route>
+                <Route exact path="/new">
+                  <NewEvent addEvent={addEvent} newId={`${state.eventData.length + 1}`} />
+                </Route>
+                <Route exact path="/profile">
+                  <Profile sprints={state.eventData} setVerified={setVerified} />
+                </Route>
+                <Route exact path="/event/:id">
+                  <Event setMessage={setMessage} addAttendance={addAttendance} />
+                </Route>
+                <Route path="*">
+                  <Redirect to="/" />
+                </Route>
+              </Switch>
             </div>
           </div>
           <Footer />
