@@ -1,5 +1,5 @@
 import React, { ReactElement, useEffect, useState } from "react";
-import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import About from "./components/About";
 import Profile from "./components/Profile";
 import NewEvent from "./components/NewEvent";
