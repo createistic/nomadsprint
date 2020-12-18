@@ -93,16 +93,16 @@ const App = (): ReactElement => {
               <Route exact path="/">
                 <LandingPage />
               </Route>
-              <Route path="/about">
+              <Route exact path="/about">
                 <About />
               </Route>
-              <Route path="/new">
+              <Route exact path="/new">
                 <NewEvent addEvent={addEvent} newId={`${state.eventData.length + 1}`} />
               </Route>
-              <Route path="/profile">
+              <Route exact path="/profile">
                 <Profile sprints={state.eventData} setVerified={setVerified} />
               </Route>
-              <Route path="/event/:id">
+              <Route exact path="/event/:id">
                 <Event setMessage={setMessage} addAttendance={addAttendance} />
               </Route>
             </div>
