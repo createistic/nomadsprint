@@ -102,7 +102,7 @@ const App = (): ReactElement => {
               <Route exact path="/profile">
                 <Profile sprints={state.eventData} setVerified={setVerified} />
               </Route>
-              <Route path="/event/:id">
+              <Route exact path="/event/:id">
                 <Event setMessage={setMessage} addAttendance={addAttendance} />
               </Route>
               <Route path="*">
