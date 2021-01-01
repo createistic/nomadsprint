@@ -7,16 +7,16 @@ import Event from "./components/Event";
 import LandingPage from "./containers/LandingPage";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import SDKService from "./services/sdk.service";
+//import SDKService from "./services/sdk.service";
 import { UserContext } from "./services/appContexts";
 import Modal from "./components/Modal";
 import { IAppState, SprintEvent, testData } from "./services/utils";
 import "./styles/App.css";
 
-const getUserData = async () => {
-  const res = await SDKService.getUserInfo();
-  return res.data;
-};
+// const getUserData = async () => {
+//   const res = await SDKService.getUserInfo();
+//   return res.data;
+// };
 
 const App = (): ReactElement => {
   const hasLocation = window && window.location;
@@ -44,14 +44,14 @@ const App = (): ReactElement => {
   }, [hasLocation]);
 
   // Set the logged in user, we are hilton
-  useEffect(() => {
-    getUserData().then((data) => {
-      setState((prevState) => ({
-        ...prevState,
-        user: { ...data, ...prevState.user },
-      }));
-    });
-  }, [state.verified]);
+  // useEffect(() => {
+  //   getUserData().then((data) => {
+  //     setState((prevState) => ({
+  //       ...prevState,
+  //       user: { ...data, ...prevState.user },
+  //     }));
+  //   });
+  // }, [state.verified]);
 
   // Sync state changes to local storage
   useEffect(() => {

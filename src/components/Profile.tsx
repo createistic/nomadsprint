@@ -9,14 +9,14 @@ import UserDetails from "./UserDetails";
 import img from "../styles/user-female.png";
 import badge from "../styles/verified-badge.svg";
 
-const initiateAuth = async () => {
-  try {
-    const res = await SDKService.getVerificationLink();
-    window.location.href = res.data;
-  } catch (e) {
-    console.log("Error:", e);
-  }
-};
+// const initiateAuth = async () => {
+//   try {
+//     const res = await SDKService.getVerificationLink();
+//     window.location.href = res.data;
+//   } catch (e) {
+//     console.log("Error:", e);
+//   }
+// };
 
 interface IProfileProps {
   setVerified: (code: string) => void;
@@ -38,7 +38,7 @@ const Profile: React.FC<IProfileProps> = ({ setVerified, sprints }): React.React
     }
   }, []);
 
-  const userEvents = context.user && context.user.events ? context.user.events : [];
+  const userEvents = context.user?.events ? context.user.events : [];
   const recommendations = userEvents.length > 0 ? getRecommendations(userEvents, sprints) : [];
 
   return (
@@ -66,7 +66,13 @@ const Profile: React.FC<IProfileProps> = ({ setVerified, sprints }): React.React
             })}
           </p>
         ) : null}
-        {!context.verified && <Button type="primary" text="Get verified" onClick={initiateAuth} />}
+        {!context.verified && (
+          <Button
+            type="primary"
+            text="Get verified"
+            onClick={() => setVerified("serviceremoved_dummycode")}
+          />
+        )}
         {context.verified && (
           <>
             <Button type="primary" text="Go to events" onClick={() => history.push("/")} />
